@@ -1,0 +1,23 @@
+yarn wont install create-react-native-app globally
+
+> npm install create-react-native-app -g
+> npm install expo-cli -g
+> npm install react-native-cli -g
+
+after expo-cli dont use git bash - use cmd to create react native app
+
+> create-react-native-app app-one
+
+
+Start Emulator
+--------------
+> react-native run-ios
+> react-native run-android
+
+scripts
+-------
+"run:ios	":"react-native run-ios",
+"run:android": "react-native run-android"
+
+
+
