@@ -1,0 +1,5 @@
+https://github.com/vhpoet/react-native-styling-cheat-sheet
+https://medium.com/@drorbiran/the-full-react-native-layout-cheat-sheet-a4147802405c
+https://blog.usejournal.com/react-native-cheat-sheet-6dd982d92b23
+
+https://rationalappdev.com/react-native-cheat-sheet/
