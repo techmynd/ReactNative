@@ -4,6 +4,13 @@ android app - expo
 https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www&rdid=host.exp.exponent
 
 cli
-npm install expo-cli --global
+> npm install expo-cli --global
 
 https://github.com/react-community/create-react-native-app
+
+> npm i -g create-react-native-app
+
+> npm i -g  react-native-cli
+
+> create-react-native-app app-name
+

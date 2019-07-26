@@ -1,0 +1,29 @@
+these should be installed globally
+==================================
+> npm i -g create-react-native-app
+> npm install -g expo-cli
+> npm install -g exp
+
+create react native app
+=======================
+use cmd / dont use git bash otherwise app will not be created
+> create-react-native-app react-native-redux-crypto-tracker
+
+name the app and select slug
+
+> yarn start
+> yarn android
+
+build apk
+> exp build:android
+
+
+
+//// not working 
+redux, thunk or middleware issue ///
+render.CoinCard not working 
+
+https://www.udemy.com/ultimate-react-native-with-firebase/learn/lecture/15435540#overview
+
+
+
