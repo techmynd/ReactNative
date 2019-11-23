@@ -25,6 +25,18 @@ value={enteredValue}
 />
 enteredValue is coming from state
 
+keyboardType > default / numeric / number-pad / decimal-pad / email-address / phone-pad
+decimal-pad for price input
+autoCapitalize=''
+autoCorrect={false}
+returnKeyType='next'
+onChangeText=''
+onFocus=''
+
+
+
+
+
 onPress={doStuff}
 onPress={doStuff()} // invoke immediately
 onPress={() => doStuff(parameter)} // bind stuff
@@ -282,3 +294,19 @@ const styles = StyleSheet.create({
 });
 
 <StatusBarStyle backgroundColor="#772ea2" barStyle="light-content"/>
+
+image background
+================
+<ImageBackground source={Images.bg}>
+
+Switch
+======
+<Switch 
+  value={booleanPropertyFromState} 
+  onValueChange={newValue => setIsGlutenFree(newValue)} 
+  trackColor={{true: Colors.MyColor}}
+  thumbColor={Colors.myThumbColor}
+/>
+
+thumbColor={Platform.OS === 'android' ? Colors.myThumbColor : Colors.myOtherThumbColor}
+

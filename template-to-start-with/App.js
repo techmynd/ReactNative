@@ -22,6 +22,9 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import StatusBarStyle from './components/constants/StatusBarStyle';
 
+import { useScreens } from 'react-native-screens';
+useScreens();
+
 // load fonts from start
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
