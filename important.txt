@@ -1,0 +1,284 @@
+{...props}
+
+use {...props} in every child component 
+so that it gets styles and attributes and parameters 
+and stuff from parent component or styled component
+
+// styles from parent
+<Text style={{...styles.thisComponentTextStyle, ...props.style}}>Some text</Text>
+...props.style brings styles from parent component
+
+you can also pass styles as props to child components
+
+
+Input parameters
+================
+<Input 
+blurOnSubmit 
+autoCapitalize='none'
+autoCorrect={false}
+keyboardType="numeric"
+keyboardType="number-pad"
+maxLength={2}
+onChangeText={numberInputHandler}
+value={enteredValue}
+/>
+enteredValue is coming from state
+
+onPress={doStuff}
+onPress={doStuff()} // invoke immediately
+onPress={() => doStuff(parameter)} // bind stuff
+onPress={() => {}} // self invoking
+onPress={nexthandler.bind(this, 'lower')}
+
+const SomeComponent = props => {
+  const [enteredValue, setEnteredValue] = useState('');
+}
+
+const numberInputHandler = inputText => {
+  setEnteredValue(inputText);
+  // or validate first
+  setEnteredValue(inputText.replace(/[^0-9]/g,''));
+  // replace globally for entered text anything else that 0 to 9
+}
+
+const inputResetHandler = () => {
+  setEnteredValue('');
+}
+
+TouchableWithoutFeedback
+=========================
+import {TouchableWithoutFeedback, Keyboard} from 'react-native';
+Wrap entire screen with this component 
+so that if user click somewhere else, keyboard goes away
+immediate after 
+return(
+<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+....
+</TouchableWithoutFeedback>
+);
+
+// or
+onPress={()=>Keyboard.dismiss()} accessible={false}
+
+
+
+after return execution stops
+============================
+if(isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
+  return;
+  // just stop, don't proceed
+}
+
+Alert
+=====
+import {Alert} from 'react-native';
+Alert.alert(
+'invalid number!', 'Number has to be this or that', 
+[{text: 'Ok', style: 'destructive', onPress: functionName}]
+);
+// style can also be cancel
+
+you can use components in variables
+==================================
+e.g.
+component switch logic 
+
+let content = <componentName />;
+if (number == 2){
+  // if number in state is 2 show diffreent component
+  content = <nextScreen />;
+}
+
+useRef *important*
+======
+useRef allows to create a value which allows components rerender
+
+currentLow = useRef(1);
+currentHigh = useRef(2);
+
+Destructuring
+=============
+
+const { varOne, varTwo } = props;
+someThing={varOne}
+otherThing={varTwo}
+
+Images
+======
+source={require('../../images/icon-arrow-right.png')}
+source={{uri: 'http://www.site.com/icon-arrow-right.png'}}
+source={Images.imageName}
+
+flex and flexGrow
+=================
+if flex=1 does not work for ScrollView, use flexGrow=1
+
+RESPONSIVENESS
+==============
+flexible width height / responsiveness
+======================================
+
+button: {
+  width: 100  
+}
+
+button: {
+  width: 40%  
+}
+
+in styles you can use 
+
+width: Dimensions.get('window').width,
+width: Dimensions.get('window').width / 2,
+width: Dimensions.get('window').width / 3,
+width: Dimensions.get('window').width / 4,
+
+Dimensions in if checks
+=======================
+
+width: Dimensions.get('window').height > 600 ? 20 : 10,
+// if devive height is more than 600px use 20 otherwise 10
+width: Dimensions.get('window').height > 320 ? '60%' : '80%',
+
+// responsive check
+<Card style={Dimensions.get('window').width > 600 ? styles.buttonContainerBig : styles.buttonContainerSmall}
+
+// or 
+===========================================
+if (Dimensions.get('window').width > 600) {
+  return <View>...</View>
+};
+// else proceed
+return();
+===========================================
+
+imageContainer: {
+  width: Dimensions.get('window').width * 0.7,
+  height: Dimensions.get('window').width * 0.7,
+  borderRadius: width: Dimensions.get('window').width * 0.7 / 2,
+  borderWidth: 3,
+  borderColor: '#000',
+  marginVertical: Dimensions.get('window').height / 30,
+}
+
+// 0.7 is 70% of available width
+// these responsive measures do not recalculate on device orientation change
+// use state to listen to dimension change and apply styles again on orientation change
+// use useEffect to apply eventlistener and remove eventlistener everytime orientation change 
+(chapter > listening to orientation changes)
+// instead of state you can also have different layouts for different screens // if else render
+(chapter > rendering different layouts)
+
+textSize: {
+  fontSize: Dimensions.get('window').height < 600 ? 16 : 20,
+}
+
+
+//////////////////////////
+
+const [availableDeviceWidth, setAvailableDeviceWidth] = useState(Dimensions.get('window').width);
+const [availableDeviceHeight, setAvailableDeviceHeight] = useState(Dimensions.get('window').height);
+useEffect(() => {
+    const updateLayout = () => {
+        setAvailableDeviceWidth(Dimensions.get('window').width);
+        setAvailableDeviceHeight(Dimensions.get('window').height);
+};
+Dimensions.addEventListener('change', updateLayout);
+return () => {
+        Dimensions.removeEventListener('change', updateLayout);
+    };
+});
+
+// and then 
+
+let gameControls = (
+  <React.Fragment>
+    <Card style={styles.buttonContainer}>
+      ...
+    </Card>
+  </React.Fragment>
+);
+ 
+if (availableDeviceHeight < 500) {
+  gameControls =  (
+    <View style={styles.controls}>
+      ...    
+    </View>
+  );
+}
+
+////////////////////////////////
+
+must have wrappers to give content room
+=======================================
+
+<SafeAreaView>
+<ScrollView>
+<KeyboardAvoidingView>
+<TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()} accessible={false}>
+<View style={styles.rootcontainer}>
+  ....
+</View>
+</TouchableWithoutFeedback>
+</KeyboardAvoidingView>
+</ScrollView>
+</SafeAreaView>
+
+// options
+<KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
+
+======================
+
+platform specific
+=================
+
+backgroundColor: Platform.OS === 'android' ? Colors.primary : Colors.secondary,
+color: Platform.OS === 'Android' ? '#fff' : '#000',
+Platform.OS === 'ios'
+Platform.OS === 'macos'
+Platform.OS === 'web'
+Platform.OS === 'windows'
+
+<View style={{
+  ...styles.headerBase, 
+  ...platform.select({
+  ios: styles.headerIOS,
+  android: styles.headerAndroid
+  })
+}}>...</View>
+
+headerBase: {}
+headerIOS: {}
+headerAndroid: {}
+
+if (Platform.OS === 'android' && Platform.Version >= 21){
+  ...
+}
+
+MainButton.android.js
+MainButton.ios.js
+use MainButton in import and react will pick relevant according to the platform
+
+statusbar // StatusBarStyle.js
+==============================
+/**
+ * Takes backgroundColor as prop from parent
+ * Set backGroundColor from App.js / main component
+ */
+import React from 'react';
+import { View, StatusBar, StyleSheet, Platform } from 'react-native';
+const StatusBarStyle = ({ backgroundColor, ...props }) => (
+  <View style={[styles.statusBar, { backgroundColor }]}>
+    <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+  </View>
+);
+export default StatusBarStyle;
+
+const styles = StyleSheet.create({
+  statusBar: {
+    height: Platform.OS === 'ios' ? 20 : StatusBar.currentHeight
+  }
+});
+
+<StatusBarStyle backgroundColor="#772ea2" barStyle="light-content"/>

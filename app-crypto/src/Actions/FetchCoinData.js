@@ -14,12 +14,13 @@ export default function FetchCoinData() {
       return dispatch({
         type: FETCHING_COIN_DATA_SUCCESS,
         payload: res.data,
-      }).catch(err => {
-        return dispatch({
-          type: FETCHING_COIN_DATA_FAIL,
-          payload: err,
-        });
       });
+      // .catch(err => {
+      //   return dispatch({
+      //     type: FETCHING_COIN_DATA_FAIL,
+      //     payload: err,
+      //   });
+      // });
     });
   };
 }

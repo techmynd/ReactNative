@@ -1,3 +1,13 @@
+
+//// not working 
+redux, thunk or middleware issue ///
+render.CoinCard not working 
+
+https://www.udemy.com/ultimate-react-native-with-firebase/learn/lecture/15435540#overview
+
+//////////////////////
+
+
 these should be installed globally
 ==================================
 > npm i -g create-react-native-app
@@ -19,11 +29,6 @@ build apk
 
 
 
-//// not working 
-redux, thunk or middleware issue ///
-render.CoinCard not working 
-
-https://www.udemy.com/ultimate-react-native-with-firebase/learn/lecture/15435540#overview
 
 
 
