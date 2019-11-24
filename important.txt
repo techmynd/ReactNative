@@ -1,3 +1,9 @@
+npm install -g expo
+expo init MyProject
+cd MyProject
+npm start
+
+
 {...props}
 
 use {...props} in every child component 
@@ -32,10 +38,6 @@ autoCorrect={false}
 returnKeyType='next'
 onChangeText=''
 onFocus=''
-
-
-
-
 
 onPress={doStuff}
 onPress={doStuff()} // invoke immediately
@@ -309,4 +311,22 @@ Switch
 />
 
 thumbColor={Platform.OS === 'android' ? Colors.myThumbColor : Colors.myOtherThumbColor}
+
+publish
+========
+
+> expo publish
+> expo build:android
+> expo build:android -t app-bundle
+> expo build:ios
+
+// imporrtant if u want to update the same app again
+> expo fetch:android:ketstore
+
+> expo upload:android
+
+
+
+
+
 
