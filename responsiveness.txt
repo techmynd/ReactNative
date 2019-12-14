@@ -1,0 +1,8 @@
+https://www.npmjs.com/package/react-native-responsive-fontsize
+
+https://stackoverflow.com/questions/33628677/react-native-responsive-font-size
+
+https://stackoverflow.com/questions/49532028/how-to-make-font-size-responsive-in-react-native
+
+https://medium.com/soluto-engineering/size-matters-5aeeb462900a
+
