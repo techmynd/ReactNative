@@ -1,0 +1,23 @@
+folder structure
+================
+
+assets
+--images
+--fonts
+navigation
+screens
+--header
+--footer
+--shop
+--users
+store
+--actions
+--reducers
+utils
+constants
+
+
+yarn install react-redux redux react-navigation react-navigation-header-buttons
+expo install react-native-gesture-handler react-native-reanimated
+
+
