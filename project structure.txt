@@ -11,6 +11,7 @@ screens
 --shop
 --users
 store
+models
 --actions
 --reducers
 utils
