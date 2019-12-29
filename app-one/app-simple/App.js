@@ -1,11 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, InputText } from 'react-native';
+import InputBox from './components/input'
+import TextBox from './components/text'
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <InputBox />
+        <TextBox 
+          value="Open up App.js to start working on your app!" 
+        />
       </View>
     );
   }
