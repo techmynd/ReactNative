@@ -5,6 +5,8 @@ assets
 --images
 --fonts
 navigation
+components
+containers
 screens
 --header
 --footer
@@ -21,5 +23,18 @@ constants
 
 yarn install react-redux redux react-navigation react-navigation-header-buttons
 expo install react-native-gesture-handler react-native-reanimated
+yarn install expo-fonts
+
+
+
+
+
+
+
+
+
+
+
+
 
 
